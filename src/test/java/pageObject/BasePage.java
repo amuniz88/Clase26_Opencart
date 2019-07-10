@@ -1,18 +1,23 @@
 package pageObject;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
+public class BasePage extends BasePO{
 
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    protected NavigateBar bar;
+
 
     public BasePage(WebDriver driver){
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 10);
-        PageFactory.initElements(driver, this);
+        super(driver);
+        bar = new NavigateBar(driver);
     }
 
+    public void seleccionarMoneda(String moneda){
+        bar.selectMoneda(moneda);
+    }
+    public RegisterPage clickInRegister(){
+        return bar.clickInRegister();
+    }
+//    public void login(){
+//    }
 }

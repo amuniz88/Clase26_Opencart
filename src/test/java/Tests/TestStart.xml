@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SuiteTesst-Clase19To24" parallel="tests" thread-count="2">
-    <parameter name="moneda" value="dolar"/> <!-- 3 Opciones (dolar, euro, sterling)-->
-<!--    <parameter name="pass" value="ThisIsNotAPassword"/>-->
-    <parameter name="browser" value="chrome"/> <!-- 2 Opciones (chrome, firefox)-->
+    <parameter name="moneda" value="EUR"/>                  <!-- 3 Opciones (USD, EUR, GBP)-->
+    <parameter name="browser" value="chrome"/>              <!-- 2 Opciones (chrome, firefox)-->
     <test name="test">
         <classes>
             <class name="Tests.TestClass">
                 <methods>
-                    <include name="cambioMoneda"/>
-<!--                    <include name="loginFailed"/>-->
-<!--                    <include name="testAppointment"/>-->
+                    <include name="cambioMonedaParameters"/>
                 </methods>
             </class>
+            <class name="Tests.TestRegisterCase">
+                <methods>
+                    <include name="registroDeUsuario"/>
+                </methods>
+            </class>
+<!--            <class name="Tests.TestRegisterCase">-->
+<!--                <methods>-->
+<!--                    <include name="registroDeUsuario"/>-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
 <!--    <test name="test in firefox" >-->

@@ -68,10 +68,6 @@ public class RegisterPage extends BasePage{
             String name, String apellido, String email, String phone
             , String addres, String city, String postCode, String country
             , String zone, String pass, String confirm, String radio, boolean check) {
-//        btn_myAcount.click();
-//        btn_registro.click();
-
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
 
         txt_name.sendKeys(name);
         txt_apellido.sendKeys(apellido);

@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 import pageObject.HomePage;
+import pageObject.LoginPage;
 import pageObject.RegisterPage;
 import utils.GetProperties;
 
@@ -21,9 +22,11 @@ public class BaseTest {
     protected WebDriver driver;
     protected HomePage hPage;
     protected RegisterPage registerPage;
+    protected LoginPage logP;
 
     protected GetProperties properties    = new GetProperties();
     protected String url                  = properties.getString("URL");
+    protected String hub_url              = properties.getString("HUB_URL");
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"moneda", "browser"})

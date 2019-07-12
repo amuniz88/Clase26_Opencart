@@ -18,6 +18,9 @@ public class BasePage extends BasePO{
     public RegisterPage clickInRegister(){
         return bar.clickInRegister();
     }
-//    public void login(){
-//    }
+    public LoginPage clickInLogin(){
+        return bar.clickLogin();
+    }
+
+    //    public void search(){}
 }

@@ -5,19 +5,19 @@
     <parameter name="browser" value="chrome"/>              <!-- 2 Opciones (chrome, firefox)-->
     <test name="test">
         <classes>
-            <class name="Tests.TestClass">
-                <methods>
-                    <include name="cambioMonedaParameters"/>
-                </methods>
-            </class>
-            <class name="Tests.TestRegisterCase">
-                <methods>
-                    <include name="registroDeUsuario"/>
-                </methods>
-            </class>
+<!--            <class name="Tests.TestClass">-->
+<!--                <methods>-->
+<!--                    <include name="cambioMonedaParameters"/>-->
+<!--                </methods>-->
+<!--            </class>-->
 <!--            <class name="Tests.TestRegisterCase">-->
 <!--                <methods>-->
 <!--                    <include name="registroDeUsuario"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="Tests.TestLoginCase">-->
+<!--                <methods>-->
+<!--                    <include name="login"/>-->
 <!--                </methods>-->
 <!--            </class>-->
         </classes>

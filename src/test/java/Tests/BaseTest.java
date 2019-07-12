@@ -8,9 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
-import pageObject.HomePage;
-import pageObject.LoginPage;
-import pageObject.RegisterPage;
+import pageObject.*;
 import utils.GetProperties;
 
 public class BaseTest {
@@ -23,10 +21,12 @@ public class BaseTest {
     protected HomePage hPage;
     protected RegisterPage registerPage;
     protected LoginPage logP;
+    protected SearchPage sPage;
+    protected WishListPage whishList;
 
     protected GetProperties properties    = new GetProperties();
     protected String url                  = properties.getString("URL");
-    protected String hub_url              = properties.getString("HUB_URL");
+//    protected String hub_url              = properties.getString("HUB_URL");
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"moneda", "browser"})
@@ -38,10 +38,12 @@ public class BaseTest {
 //            options.addArguments("--start-maximized");
             options.addArguments("disable-infobars");
             driver = new ChromeDriver(options);
+//            driver = new RemoteWebDriver(new URL(hub_url), options);
         }else if(browser.equalsIgnoreCase("firefox")){
             System.setProperty("webdriver.gecko.driver", properties.getString("FIREFOXDRIVER_PATH"));
 
             driver = new FirefoxDriver();
+//            driver = new RemoteWebDriver(new URL(hubUrl), new FirefoxOptions());
         }
         driver.manage().window().maximize();
 

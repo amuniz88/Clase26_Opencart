@@ -20,6 +20,11 @@
 <!--                    <include name="login"/>-->
 <!--                </methods>-->
 <!--            </class>-->
+<!--            <class name="Tests.Test_ProdManagement_Case">-->
+<!--                <methods>-->
+<!--                    <include name="addToWishTest"/>-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
 <!--    <test name="test in firefox" >-->

@@ -21,6 +21,8 @@ public class BasePage extends BasePO{
     public LoginPage clickInLogin(){
         return bar.clickLogin();
     }
-
-    //    public void search(){}
+    public SearchPage searchObject(String elemento){
+        return bar.searchElement(elemento);
+        }
+    public WishListPage goToWishList(){return bar.goToWishList();}
 }

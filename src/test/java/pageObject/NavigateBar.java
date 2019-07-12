@@ -23,6 +23,9 @@ public class NavigateBar extends BasePO{
     @FindBy(className = "btn-default")
     WebElement btn_Search;
 
+    @FindBy(partialLinkText = "Wish List")
+    WebElement wishListLink;
+
     CurrencyMenu curMenu;
 
     public NavigateBar (WebDriver driver){
@@ -52,11 +55,16 @@ public class NavigateBar extends BasePO{
         return new LoginPage(driver);
     }
 
-    public SearchPage searchPage(String elemento){
+    public SearchPage searchElement(String elemento){
         txt_search.sendKeys(elemento);
         btn_Search.click();
 
         //ejercicio 3 agregar al carrito
         return new SearchPage(driver);
+    }
+
+    public WishListPage goToWishList() {
+        wishListLink.click();
+        return new WishListPage(driver);
     }
 }

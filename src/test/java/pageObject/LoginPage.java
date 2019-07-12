@@ -24,13 +24,15 @@ public class LoginPage extends BasePO {
         super(driver);
     }
 
-    public void goToLogin(String email, String password){
+    public HomePage goToLogin(String email, String password){
         txt_email.sendKeys(email);
         txt_password.sendKeys(password);
 
         btn_login.click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[id=\"content\"]")));
+
+        return new HomePage(driver);
     }
 
     public boolean myAccountIsDisplayed(){

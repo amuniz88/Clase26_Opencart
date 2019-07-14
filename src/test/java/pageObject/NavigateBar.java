@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class NavigateBar extends BasePO{
 
-    @FindBy(className = "fa-user")
-    WebElement btn_myAcount;
+    @FindBy(partialLinkText = "My Account")
+    WebElement myAcountLink;
 
-    @FindBy(css = "[href*=register]")
-    WebElement btn_registro;
+    @FindBy(partialLinkText = "Register")
+    WebElement registerLink;
 
-    @FindBy(css = "[href*=login]")
-    WebElement btn_login;
+    @FindBy(partialLinkText = "Login")
+    WebElement loginLink;
 
     @FindBy(name = "search")
     WebElement txt_search;
@@ -25,6 +25,9 @@ public class NavigateBar extends BasePO{
 
     @FindBy(partialLinkText = "Wish List")
     WebElement wishListLink;
+
+    @FindBy(partialLinkText = "Shopping Cart")
+    WebElement cartListLink;
 
     CurrencyMenu curMenu;
 
@@ -38,8 +41,10 @@ public class NavigateBar extends BasePO{
     }
 
     public RegisterPage clickInRegister(){
-        btn_myAcount.click();
-        btn_registro.click();
+        wait.until(ExpectedConditions.elementToBeClickable(myAcountLink));
+        myAcountLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(registerLink));
+        registerLink.click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
 
@@ -47,8 +52,10 @@ public class NavigateBar extends BasePO{
     }
 
     public LoginPage clickLogin(){
-        btn_myAcount.click();
-        btn_login.click();
+        wait.until(ExpectedConditions.elementToBeClickable(myAcountLink));
+        myAcountLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginLink));
+        loginLink.click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[contains(@class,'btn-primary')]")));
 
@@ -64,7 +71,16 @@ public class NavigateBar extends BasePO{
     }
 
     public WishListPage goToWishList() {
+        wait.until(ExpectedConditions.elementToBeClickable(wishListLink));
         wishListLink.click();
+
         return new WishListPage(driver);
+    }
+
+    public CartListPage goToCartList (){
+        wait.until(ExpectedConditions.elementToBeClickable(cartListLink));
+        cartListLink.click();
+
+        return new CartListPage(driver);
     }
 }

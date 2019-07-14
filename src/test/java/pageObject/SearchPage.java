@@ -46,4 +46,18 @@ public class SearchPage extends BasePage{
         }
     }
 
+    public void addToCartList(String object){
+        for(ProductItem prod : resultado){
+            if(prod.getName().equals(object)){
+                prod.addToCart();
+                break;
+            }
+        }
+    }
+
+    public boolean isObjectAddedToCartList(String object){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(("div.alert-success"))));
+        WebElement addToCartSucces = driver.findElement(By.cssSelector(("div.alert-success")));
+        return addToCartSucces.getText().contains("Success: You have added " + object + " to your shopping cart!");
+    }
 }

@@ -14,7 +14,9 @@
         <compiler.version>3.8.0</compiler.version>
         <surefire.version>2.19.1</surefire.version>
         <resources.version>3.1.0</resources.version>
-
+        <webdriver.extension.plugin.version>3.1.1</webdriver.extension.plugin.version>
+        <webdriverextencion.version>3.3.0</webdriverextencion.version>
+        <version.chromdriver>75.0.3770.90</version.chromdriver>
     </properties>
 
     <dependencies>
@@ -32,10 +34,17 @@
             <version>${selenium.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.webdriverextensions</groupId>
+            <artifactId>webdriverextensions</artifactId>
+            <version>${webdriverextencion.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!--        Para que me compile el programa desde maven-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -46,21 +55,86 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+            <!--    (Explicacion para el plugin version 2.19.1)
+            si corro por consola de maven, no sabe que es lo que quiero correr
+            por eso le agrego el siguiente plugin de maven para que detecte correctamente
+            para jenckins es ideal-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/java/Tests/TestStart.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/java/XML/TestStart.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+            <!--        Este plugin sirve para copiar las properties ubicado en "src/test/java/resources" al target-->
+            <!--        luego poder llamarlo desde las clases tests y utilizar las properties-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>${resources.version}</version>
             </plugin>
+
+<!--        Este plugin descarga automaticamente todos los drivers de los navegadores automaticamente si ya no los tengo-->
+            <plugin>
+            <groupId>com.github.webdriverextensions</groupId>
+            <artifactId>webdriverextensions-maven-plugin</artifactId>
+            <version>${webdriver.extension.plugin.version}</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>install-drivers</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <drivers>
+                    <driver>
+                        <name>chromedriver</name>
+                        <version>${version.chromdriver}</version>
+                        <platform>mac</platform>
+                    </driver>
+                    <driver>
+                        <name>chromedriver</name>
+                        <version>${version.chromdriver}</version>
+                        <platform>linux</platform>
+                    </driver>
+                    <driver>
+                        <name>chromedriver</name>
+                        <version>${version.chromdriver}</version>
+                        <platform>windows</platform>
+                    </driver>
+                    <driver>
+                        <name>geckodriver</name>
+                        <platform>windows</platform>
+                        <bit>64</bit>
+                    </driver>
+                    <driver>
+                        <name>geckodriver</name>
+                        <platform>windows</platform>
+                        <bit>32</bit>
+                    </driver>
+                    <driver>
+                        <name>geckodriver</name>
+                        <platform>mac</platform>
+                        <bit>64</bit>
+                    </driver>
+                    <driver>
+                        <name>geckodriver</name>
+                        <platform>linux</platform>
+                        <bit>64</bit>
+                    </driver>
+                    <driver>
+                        <name>geckodriver</name>
+                        <platform>linux</platform>
+                        <bit>32</bit>
+                    </driver>
+                </drivers>
+            </configuration>
+        </plugin>
+
         </plugins>
     </build>
 </project>

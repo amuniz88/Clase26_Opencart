@@ -25,4 +25,5 @@ public class BasePage extends BasePO{
         return bar.searchElement(elemento);
         }
     public WishListPage goToWishList(){return bar.goToWishList();}
+    public CartListPage goToCartList(){return bar.goToCartList();}
 }

@@ -15,9 +15,6 @@ public class ProductItem {
         return element.findElement(By.tagName("h4")).getText();
     }
 
-//    public String getNewPrice(){}
-//    public String getOldPrice(){}
-
     public String getTaxes(){
         return element.findElement(By.cssSelector(".price-tax")).getText().replace("Ex Tax: ", "");
     }
@@ -25,4 +22,6 @@ public class ProductItem {
     public void addToWish(){
         element.findElement(By.cssSelector("i.fa-heart")).click();
     }
+
+    public void addToCart(){element.findElement(By.className("fa-shopping-cart")).click();}
 }

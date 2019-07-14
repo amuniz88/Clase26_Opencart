@@ -3,8 +3,36 @@
 <suite name="SuiteTesst-Clase19To24" parallel="tests" thread-count="2">
     <parameter name="moneda" value="EUR"/>                  <!-- 3 Opciones (USD, EUR, GBP)-->
     <parameter name="browser" value="chrome"/>              <!-- 2 Opciones (chrome, firefox)-->
+    <parameter name="usuario" value="e.m@gmail.com"/>
+    <parameter name="password" value="123456"/>
     <test name="test">
         <classes>
+            <class name="Tests.TestClass">
+            <methods>
+                <include name="cambioMonedaParameters"/>
+            </methods>
+        </class>
+        <class name="Tests.TestRegisterCase">
+            <methods>
+                <include name="registroDeUsuario"/>
+            </methods>
+        </class>
+        <class name="Tests.TestLoginCase">
+            <methods>
+                <include name="login"/>
+            </methods>
+        </class>
+            <class name="Tests.Test_ProdManagement_Case">
+                <methods>
+                    <include name="addToWishTest"/>
+                    <include name="addToCartTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+<!--    <test name="test in firefox" >-->
+<!--        <parameter name="browser" value="firefox"/>-->
+<!--        <classes>-->
 <!--            <class name="Tests.TestClass">-->
 <!--                <methods>-->
 <!--                    <include name="cambioMonedaParameters"/>-->
@@ -23,18 +51,6 @@
 <!--            <class name="Tests.Test_ProdManagement_Case">-->
 <!--                <methods>-->
 <!--                    <include name="addToWishTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-        </classes>
-    </test>
-<!--    <test name="test in firefox" >-->
-<!--        <parameter name="browser" value="firefox"/>-->
-<!--        <classes>-->
-<!--            <class name="Tests.TestClass" >-->
-<!--                <methods>-->
-<!--                    <include name="login"/>-->
-<!--                    <include name="badLogin"/>-->
-<!--                    <include name="testAppointment"/>-->
 <!--                </methods>-->
 <!--            </class>-->
 <!--        </classes>-->

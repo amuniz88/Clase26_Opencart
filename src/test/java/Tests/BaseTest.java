@@ -23,6 +23,8 @@ public class BaseTest {
     protected LoginPage logP;
     protected SearchPage sPage;
     protected WishListPage whishList;
+    protected CartListPage cartListPage;
+    protected CartListItem cartListItem;
 
     protected GetProperties properties    = new GetProperties();
     protected String url                  = properties.getString("URL");

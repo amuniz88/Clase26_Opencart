@@ -7,25 +7,27 @@
     <parameter name="password" value="123456"/>
     <test name="test">
         <classes>
-            <class name="Tests.TestClass">
-            <methods>
-                <include name="cambioMonedaParameters"/>
-            </methods>
-        </class>
-        <class name="Tests.TestRegisterCase">
-            <methods>
-                <include name="registroDeUsuario"/>
-            </methods>
-        </class>
-        <class name="Tests.TestLoginCase">
-            <methods>
-                <include name="login"/>
-            </methods>
-        </class>
+<!--            <class name="Tests.TestClass">-->
+<!--                <methods>-->
+<!--                    <include name="cambioMonedaParameters"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="Tests.TestRegisterCase">-->
+<!--                <methods>-->
+<!--                    <include name="registroDeUsuario"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="Tests.TestLoginCase">-->
+<!--                <methods>-->
+<!--                    <include name="login"/>-->
+<!--                </methods>-->
+<!--            </class>-->
             <class name="Tests.Test_ProdManagement_Case">
                 <methods>
-                    <include name="addToWishTest"/>
-                    <include name="addToCartTest"/>
+<!--                    <include name="addToWishTest"/>-->
+<!--                    <include name="addToCartTest"/>-->
+                    <include name="addPhoneCheapToCart"/>
+<!--                    <include name="removePhoneCheapToCart"/>-->
                 </methods>
             </class>
         </classes>

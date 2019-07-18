@@ -60,4 +60,22 @@ public class SearchPage extends BasePage{
         WebElement addToCartSucces = driver.findElement(By.cssSelector(("div.alert-success")));
         return addToCartSucces.getText().contains("Success: You have added " + object + " to your shopping cart!");
     }
+
+    public void addToCartMenorPrecio(){
+        int posicion = -1;
+        double menor = 99999;
+
+        for(int i = 0; i < resultado.size(); i++){
+            if(resultado.get(i).getPrice() < menor){
+                posicion = i;
+                menor = resultado.get(i).getPrice();
+            }
+        }
+        resultado.get(posicion).addToCart();
+        setMenorPrecioName(resultado.get(posicion).getName());
+    }
+
+//    public void removeToCartMenorPrecio(){
+//
+//    }
 }

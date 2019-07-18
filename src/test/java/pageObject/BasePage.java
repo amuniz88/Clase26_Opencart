@@ -5,11 +5,22 @@ import org.openqa.selenium.WebDriver;
 public class BasePage extends BasePO{
 
     protected NavigateBar bar;
+    protected MenuBar menBar;
+    protected static String menorPrecioName;
 
+    public String getMenorPrecioName() {
+        return menorPrecioName;
+    }
+
+    public void setMenorPrecioName(String menorPrecioName) {
+        this.menorPrecioName = menorPrecioName;
+    }
 
     public BasePage(WebDriver driver){
         super(driver);
         bar = new NavigateBar(driver);
+        menBar  = new MenuBar(driver);
+
     }
 
     public void seleccionarMoneda(String moneda){
@@ -26,4 +37,7 @@ public class BasePage extends BasePO{
         }
     public WishListPage goToWishList(){return bar.goToWishList();}
     public CartListPage goToCartList(){return bar.goToCartList();}
+    public SearchPage selectMenuPhonesPDAs(){
+        return bar.goToSeleccionarOpcion("Phones & PDAs");
+    }
 }

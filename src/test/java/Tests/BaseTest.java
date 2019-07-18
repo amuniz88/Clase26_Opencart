@@ -13,8 +13,6 @@ import utils.GetProperties;
 
 public class BaseTest {
 
-//    String moneda;
-
     protected SoftAssert SA;
     protected ChromeOptions options;
     protected WebDriver driver;

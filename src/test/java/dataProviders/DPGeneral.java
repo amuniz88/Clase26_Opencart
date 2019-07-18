@@ -13,13 +13,6 @@ public class DPGeneral {
         };
     }
 
-//    @DataProvider(name="DP_Login")
-//    public Object [][] dpLogin(){
-//        return new Object[][]{
-//                {"e.m@gmail.com","123456"}
-//        };
-//    }
-
     //El if es a modo de ejemplo y saber como es, solo estoy usando el primero
     @DataProvider(name="DP_WishList")
     public Object[][] dpWishList(Method method){
@@ -30,11 +23,11 @@ public class DPGeneral {
                     {"iMac"}
             };
         }
-        else if(method.getName().equalsIgnoreCase("elProfePusoElLoginAca")){
-            datos = new Object[][]{
-                    {"e.m@gmail.com", "123456"}
-            };
-        }
+//        else if(method.getName().equalsIgnoreCase("nombre del metodo que quiero cargar el valor siguiente")){
+//            datos = new Object[][]{
+//                    {"Phones & PDAs"}
+//            };
+//        }
         return datos;
     }
 }

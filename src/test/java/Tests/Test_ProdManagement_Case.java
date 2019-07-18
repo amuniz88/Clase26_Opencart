@@ -29,4 +29,20 @@ public class Test_ProdManagement_Case extends BaseTestWithLogin{
 
         Assert.assertTrue(cartListPage.verifyIfAt(element));
     }
+
+    @Test
+    public void addPhoneCheapToCart(){
+        sPage = hPage.selectMenuPhonesPDAs();
+        sPage.addToCartMenorPrecio();
+
+//        Assert.assertTrue(sPage.isObjectAddedToCartList(menorPrecioName));
+
+        cartListPage = sPage.goToCartList();
+
+        Assert.assertTrue(cartListPage.hayElementosInToList());
+        Assert.assertTrue(cartListPage.verifyIfAt(cartListPage.getMenorPrecioName()));
+//        cartListPage = hPage.goToCartList();
+//        cartListPage.removeProduct(menorPrecioName);
+//        Assert.assertFalse(cartListPage.verifyIfAt(menorPrecioName));
+    }
 }

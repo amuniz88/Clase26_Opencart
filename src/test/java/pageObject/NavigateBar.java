@@ -30,10 +30,12 @@ public class NavigateBar extends BasePO{
     WebElement cartListLink;
 
     CurrencyMenu curMenu;
+    MenuBar menuBar;
 
     public NavigateBar (WebDriver driver){
         super(driver);
         curMenu = new CurrencyMenu(driver);
+        menuBar = new MenuBar(driver);
     }
 
     public void selectMoneda(String moneda){
@@ -82,5 +84,10 @@ public class NavigateBar extends BasePO{
         cartListLink.click();
 
         return new CartListPage(driver);
+    }
+
+    public SearchPage goToSeleccionarOpcion(String elemento){
+        menuBar.seleccionarOpcion(elemento);
+        return new SearchPage(driver);
     }
 }
